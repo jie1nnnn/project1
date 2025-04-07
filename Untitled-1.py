@@ -3,7 +3,7 @@ import random
 def escape_game():
     position = 0
     goal = 100
-    supplies = 
+    supplies = 200
 
     Print ("Wellcome to the escape game, you need to get from position 0 to position 100. You may encouter danger along the way!")
 
@@ -36,7 +36,7 @@ def fire_challenge():
     signal.signal(signal.SIGNAL, timeout_handler) 
     signal.araim(3)
     try:
-        answer = input("please enter the option number (1-3):)
+        answer = input("please enter the option number (1-3):")
         
 
 
