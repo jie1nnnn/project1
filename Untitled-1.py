@@ -42,9 +42,9 @@ def fire_challenge():
                 return False
 
         else:
-            
-
-
+            print("invalid input! ")
+            return False
+    
 
 
 
