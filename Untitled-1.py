@@ -1,5 +1,6 @@
 import random
 
+
 def escape_game():
     position = 0
     goal = 30
@@ -21,7 +22,7 @@ def escape_game():
 
             if random.random() < 0.2:
 
-                event_type == random.choice(["fire", "tornado"])
+                event_type == random.choice(["fire", "tornado", "flood"])
 
                 if event_type == "fire":
                     if not danger_event():
@@ -33,7 +34,17 @@ def escape_game():
                     survived, health = danger_event_tornado(health)
                     if not survived:
                         position = 0
+                elif event_type == "flood":
+                    position, health = danger_event_flood(health, position)
 
+def find_random_item(health, skip_token):
+    if random_random() < 0.2:
+        item == "backpack"
+        print("you got a backpack! Get a chance to skip a dangerous event" )
+        skip_token += 1
+
+      
+      
 def danger_event():
     right_options = [水]
     other_options = [土, 木]
@@ -76,15 +87,24 @@ def danger_event_tornado(health):
         print("You are returned to the starting point! ")
         return False
 
+def danger_event_flood(health, position, step):
+    print("/n you are in danger! The flood is coming.")
+    print("1. swim over (50% success)\n 2. take a detour to find high grouns(safe, but one step back)")
 
+    choice = input("please enter number what you choose (1, 2): ")
 
-
-
-
-
-
-
-
+    if choice ==  "1":
+        if random.random() < 0.5:
+            print("you successfully swam through the flood!\n")
+            return position, health
+        else:
+            health = max(0, int(health * 0.8))
+            print("you are rushed back to the starting point, health-20%. \n")
+            return 0, health
+    elif choice == "2":
+        position = max(0, position - step)
+        print("you choose to by pass the high ground, escaping safely, but retreating to positio{position}.\n")
+        return positon, health
 
 
 
