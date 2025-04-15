@@ -1,6 +1,5 @@
 import random
-
-
+                    
 def escape_game():
     position = 0
     goal = 30
@@ -10,7 +9,7 @@ def escape_game():
     print("Wellcome to the escape game, you need to get from position 0 to position 30. You may encouter danger along the way!")
 
     while position < goal:
-        try:
+          try:
             step = int(input("please enter the namber of steps forward(1-3): "))
             if step not in [1, 2, 3]:
                 print("please enter number between 1-3! ")
@@ -104,7 +103,9 @@ def danger_event_flood(health, position, step):
     elif choice == "2":
         position = max(0, position - step)
         print("you choose to by pass the high ground, escaping safely, but retreating to positio{position}.\n")
-        return positon, health
+        return position, health
+    
+    
 
 
 
