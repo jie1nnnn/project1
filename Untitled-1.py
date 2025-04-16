@@ -13,13 +13,19 @@ def escape_game():
             step = int(input("please enter the namber of steps forward(1-3): "))
             if step not in [1, 2, 3]:
                 print("please enter number between 1-3! ")
-                continue 
-            
+                continue
+
+         
             position += step
-            print ("You have moved {step} steps forward, current position:{position}")
+            print (f"You have moved {step} steps forward, current position:{position}")
+          
+
+          except ValueError:
+              print("please enter a valid number! ")
 
 
-            if random.random() < 0.2:
+
+          if random.random() < 0.2:
 
                 event_type == random.choice(["fire", "tornado", "flood"])
 
@@ -36,6 +42,7 @@ def escape_game():
                 elif event_type == "flood":
                     position, health = danger_event_flood(health, position)
 
+        
 def find_random_item(health, skip_token):
     if random_random() < 0.2:
         item == "backpack"
