@@ -1,10 +1,12 @@
 import random
+
                     
 def escape_game():
     position = 0
     goal = 30
     supplies = 100
     health = 100
+    event_type = "fire" "tornado" "flood"
 
     print("Wellcome to the escape game, you need to get from position 0 to position 30. You may encouter danger along the way!")
 
@@ -18,28 +20,26 @@ def escape_game():
          
             position += step
             print (f"You have moved {step} steps forward, current position:{position}")
-          
 
           except ValueError:
-              print("please enter a valid number! ")
+               print("please enter a valid number! ")
 
+          
 
+          if random.random() < 0.4:
+              event_type == random.choice(["fire", "tornado", "flood"])
 
-          if random.random() < 0.2:
-
-                event_type == random.choice(["fire", "tornado", "flood"])
-
-                if event_type == "fire":
+              if event_type == "fire":
                     if not danger_event():
                         supplies = int(supplies * 0.75)
                         health = int(health * 0.75)
                         print(f"you failed and were returned to the starting point. Your current supplies are: {supplies}")
                         position = 0
-                elif event_type == "tornado":
+              elif event_type == "tornado":
                     survived, health = danger_event_tornado(health)
                     if not survived:
                         position = 0
-                elif event_type == "flood":
+              elif event_type == "flood":
                     position, health = danger_event_flood(health, position)
 
         
@@ -52,8 +52,8 @@ def find_random_item(health, skip_token):
       
       
 def danger_event():
-    right_options = [水]
-    other_options = [土, 木]
+    right_options = ["水"]
+    other_options = ["土" "木"]
     options = random.sample(other_options, 2) + ['水']
     random.shuffle(options)
 
@@ -75,6 +75,7 @@ def danger_event():
         else:
             print("invalid input! ")
             return False
+    
     except TimeoutError:
         print("\ntimeout! ")
         return False
@@ -111,18 +112,14 @@ def danger_event_flood(health, position, step):
         position = max(0, position - step)
         print("you choose to by pass the high ground, escaping safely, but retreating to positio{position}.\n")
         return position, health
-    
-    
+        
+    print("/n congratulation! You escaped successfully! ")
 
-
-
-
-
-
-
-
-
-
+escape_game()
+find_random_item("health" "skip_token")
+danger_event()
+danger_event_tornado("health")
+danger_event_flood("health" "position" "step")
 
 
 
