@@ -1,6 +1,6 @@
 import random
 
-                    
+        
 def escape_game():
     position = 0
     goal = 30
