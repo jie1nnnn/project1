@@ -42,7 +42,7 @@ def escape_game():
               elif event_type == "flood":
                     position, health = danger_event_flood(health, position)
 
-        
+
 def find_random_item(health, skip_token):
     if random_random() < 0.2:
         item == "backpack"
@@ -112,14 +112,14 @@ def danger_event_flood(health, position, step):
         position = max(0, position - step)
         print("you choose to by pass the high ground, escaping safely, but retreating to positio{position}.\n")
         return position, health
-        
+
     print("/n congratulation! You escaped successfully! ")
 
 escape_game()
-find_random_item("health" "skip_token")
+find_random_item()
 danger_event()
-danger_event_tornado("health")
-danger_event_flood("health" "position" "step")
+danger_event_tornado()
+danger_event_flood()
 
 
 
